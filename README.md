@@ -69,7 +69,7 @@ Things you may want to cover:
 | prefecture_id       | integer    | null: false                    |
 | municipalities      | string     | null: false                    |
 | address             | string     | null: false                    |
-| building_name       | text       |                                |
+| building_name       | string     |                                |
 | telephone_number    | string     | null: false                    |
 | purchase_history    | references | null: false, foreign_key: true |
 
@@ -87,6 +87,5 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- has_one :order
 
