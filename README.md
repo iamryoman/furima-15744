@@ -88,4 +88,6 @@ Things you may want to cover:
 ### Association
 
 - has_one :order
+- belongs_to :user
+- belongs_to :item
 
