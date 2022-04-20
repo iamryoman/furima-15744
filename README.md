@@ -50,11 +50,11 @@ Things you may want to cover:
 | item_description     | text       | null: false                    |
 | category_id          | integer    | null: false                    |
 | condition_id         | integer    | null: false                    |
-| shipping_charges_id  | integer    | null: false                    |
-| prefectures_id       | integer    | null: false                    |
+| shipping_charge_id   | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
 | days_to_ship_id      | integer    | null: false                    |
 | price                | integer    | null: false                    |
-| user_id              | references | null: false, foreign_key: true |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -66,24 +66,23 @@ Things you may want to cover:
 | Column              | Type       | Options                        |
 | ----------------    | ---------- | ------------------------------ |
 | postal_code         | string     | null: false                    |
-| prefectures         | text       | null: false                    |
-| municipalities      | text       | null: false                    |
-| address             | text       | null: false                    |
-| building_name       | text       | null: false                    |
+| prefecture_id       | integer    | null: false                    |
+| municipalities      | string     | null: false                    |
+| address             | string     | null: false                    |
+| building_name       | text       |                                |
 | telephone_number    | string     | null: false                    |
-| purchase_history_id | references | null: false, foreign_key: true |
+| purchase_history    | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- belongs_to :purchase_history
 
 ## purchase_history テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| user_id          | references | null: false, foreign_key: true |
-| item_id          | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| --------------| ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 
 ### Association
