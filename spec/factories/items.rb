@@ -9,5 +9,9 @@ FactoryBot.define do
     days_to_ship_id           { Faker::Number.between(from: 2, to: 3) }
     price                     { Faker::Number.between(from: 300, to: 9_999_999) }
     user
+
+    after(:build) do |item|
+      item.image.attach(io: File.open('spec/fixtures/files/test_image.JPG'), filename: 'test_image.jpg')
+    end
   end
 end
