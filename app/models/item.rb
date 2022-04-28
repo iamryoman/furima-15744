@@ -18,7 +18,6 @@ class Item < ApplicationRecord
             :shipping_charge_id,
             :prefecture_id,
             :days_to_ship_id,
-            :price,
             :image,
             presence: true
   # 選択が「--」の時は保存できないようにする
