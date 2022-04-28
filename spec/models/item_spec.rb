@@ -4,7 +4,7 @@ RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
     @imageTest = FactoryBot.build(:item)
-    @item.image = fixture_file_upload("files/test_image.jpg")
+    @item.image = fixture_file_upload('files/test_image.jpg')
   end
 
   describe '商品新規登録' do
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price 指定の範囲で入力してください')
       end
       it 'priceが9999999以上では登録できない' do
-        @item.price = Faker::Number.between(from: 10000000, to: 100000000)
+        @item.price = Faker::Number.between(from: 10_000_000, to: 100_000_000)
         @item.valid?
         expect(@item.errors.full_messages).to include('Price 指定の範囲で入力してください')
       end
