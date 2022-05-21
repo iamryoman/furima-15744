@@ -13,7 +13,7 @@ RSpec.describe Item, type: :model do
     end
     context '新規登録できないとき' do
       it 'item_nameが空では登録できない' do
-        @item.item_name = nil
+        @item.item_name = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Item name can't be blank")
       end
