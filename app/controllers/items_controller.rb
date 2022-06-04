@@ -19,15 +19,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    item_find
   end
 
   def edit
-    @item = Item.find(params[:id])
+    item_find
   end
 
   def update
-    @item = Item.find(params[:id])
+    item_find
     @item.update(item_params)
 
     if @item.save
@@ -56,5 +56,9 @@ class ItemsController < ApplicationController
   def move_to_index
     @item = Item.find(params[:id])
     redirect_to action: :index unless user_signed_in? && current_user.id == @item.user_id
+  end
+
+  def item_find
+    @item = Item.find(params[:id])
   end
 end
