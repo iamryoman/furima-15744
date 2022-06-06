@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users
   root to: "items#index"
   resources :items
-  resources :donations, only: [:index, :new, :create]
+  resources :orders, only: [:index, :new, :create]
 end
 
