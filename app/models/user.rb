@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :items
-  # has_many :orders
+  has_many :orders
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -22,6 +22,6 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, format: { with: VALID_KANA_REGEX, message: 'は全角カタカナで入力を行う必要があります' }
   validates :birthday, presence: true
 
-  # has_many :items, dependent: :destroy
-  # has_many :orders, dependent: :destroy
+  has_many :items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 end
