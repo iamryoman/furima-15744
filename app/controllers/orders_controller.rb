@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
+    @orders = Orders.create(orders_params)
   end
 
   def new
