@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class OrderAddressesController < ApplicationController
 
   before_action :authenticate_user!, only: [:index, :create]
   before_action :find_by_item
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
 
