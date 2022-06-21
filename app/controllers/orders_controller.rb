@@ -3,11 +3,10 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :find_by_item
   before_action :move_to_root_path, only: [:index]
-  before_action :sold_out_move_to_root_path, only: [:create]
+  before_action :sold_out_move_to_root_path, only: [:index, :create]
 
   def index
     @order_address = OrderAddress.new
-    # @order = Order.new
   end
 
   def new
@@ -43,13 +42,11 @@ class OrdersController < ApplicationController
   end
 
   def sold_out_move_to_root_path
-    @sold_out = PurchaseHistory.find_by(@item.id[:item_id])
-    redirect_to root_path if @item.id == @sold_out.item_id
+    redirect_to root_path if @item.purchase_history.present?
   end
 
   def find_by_item
-    @item = Item.new
-    @item = Item.find_by(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item

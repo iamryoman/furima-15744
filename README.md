@@ -40,7 +40,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :orders
+- has_many :purchase_histories
 
 ## items テーブル
 
@@ -59,7 +59,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :purchase_history
 
 ## orders テーブル
 

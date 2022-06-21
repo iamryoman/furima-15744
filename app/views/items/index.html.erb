@@ -130,7 +130,7 @@
 
      <% if @item.present? %>
 
-      <%= render partial: 'item', collection: @item %>
+      <%= render partial: 'item', collection: @item, as: :item %>
 
      <% else %>
 
