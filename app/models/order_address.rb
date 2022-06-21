@@ -17,8 +17,8 @@ class OrderAddress
               :municipalities,
               :address
 
-    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :telephone_number, format: {with: /\A\d{10,11}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :telephone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Include hyphen(-)' }
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   # tokenga空の投稿を保存できないようにする
@@ -38,6 +38,4 @@ class OrderAddress
       purchase_history_id: order.id
     )
   end
-
 end
-

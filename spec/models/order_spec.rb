@@ -23,6 +23,11 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Postal code can't be blank")
     end
+    it "postal_codeがハイフン無しでは登録できないこと" do
+      @order.postal_code = 1234567
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+    end
     it "prefecture_idが空では登録できないこと" do
       @order.prefecture_id = nil
       @order.valid?
@@ -43,9 +48,10 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Telephone numbe can't be blank")
     end
-    it "purchase_history_idが空では登録できないこと" do
-      @order.purchase_history_id = nil
+    it "telephone_numberにハイフンをつけると登録できないこと" do
+      @order.telephone_number = 090-1234-5678
       @order.valid?
-      expect(@order.errors.full_messages).to include("Telephone numbe can't be blank")
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
     end
+
 end
