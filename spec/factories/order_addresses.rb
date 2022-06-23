@@ -6,7 +6,7 @@ FactoryBot.define do
     municipalities { '東京都多摩市南野' }
     address { '5-4-4-4' }
     building_name { 'ハイツ' }
-    telephone_number { "08036365863" }
+    telephone_number { '08036365863' }
     # purchase_history_id { '5' }
   end
 end

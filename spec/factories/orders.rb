@@ -9,5 +9,4 @@ FactoryBot.define do
     telephone_number { '09087654321' }
     purchase_history_id { '5' }
   end
-
 end
