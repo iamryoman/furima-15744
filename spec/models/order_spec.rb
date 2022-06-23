@@ -54,5 +54,25 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
     end
-
+    it "電話番号が9桁以下では購入できない" do
+      @order.telephone_number = "09045678"
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
+    end
+    it "電話番号が12桁以上では購入できない" do
+      @order.telephone_number = "09012345678123"
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
+    end
+    it "userが紐付いていなければ購入できない" do
+      @order.user_id = nil
+      @order.valid?
+      binding.pry
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
+    end
+    it "itemが紐付いていなければ購入できない" do
+      @order.item_id = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
+    end
 end

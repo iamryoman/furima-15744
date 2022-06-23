@@ -14,7 +14,9 @@ class OrderAddress
   with_options presence: true do
     validates :prefecture_id,
               :municipalities,
-              :address
+              :address,
+              :user_id,
+              :item_id
 
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :telephone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Include hyphen(-)' }
