@@ -12,8 +12,7 @@ class OrderAddress
                 :token
 
   with_options presence: true do
-    validates :postal_code,
-              :prefecture_id,
+    validates :prefecture_id,
               :municipalities,
               :address
 

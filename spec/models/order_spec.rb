@@ -5,6 +5,7 @@ RSpec.describe Order, type: :model do
     @order = FactoryBot.build(:order)
   end
 
+
   context '内容に問題ない場合' do
     it "入力があれば保存ができること" do
       expect(@order).to be_valid
@@ -24,7 +25,7 @@ RSpec.describe Order, type: :model do
       expect(@order.errors.full_messages).to include("Postal code can't be blank")
     end
     it "postal_codeがハイフン無しでは登録できないこと" do
-      @order.postal_code = 1234567
+      @order.postal_code = "1234567"
       @order.valid?
       expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
     end
@@ -49,7 +50,7 @@ RSpec.describe Order, type: :model do
       expect(@order.errors.full_messages).to include("Telephone numbe can't be blank")
     end
     it "telephone_numberにハイフンをつけると登録できないこと" do
-      @order.telephone_number = 090-1234-5678
+      @order.telephone_number = "090-1234-5678"
       @order.valid?
       expect(@order.errors.full_messages).to include("Telephone number is invalid. Include hyphen(-)")
     end
